@@ -1,1 +1,4 @@
-../../Machfiles/zsh/.config/zsh/zsh-prompt
+#!/bin/sh
+
+source "$ZDOTDIR/plugins/spaceship-prompt/spaceship.zsh"
+SPACESHIP_VI_MODE_SHOW=false

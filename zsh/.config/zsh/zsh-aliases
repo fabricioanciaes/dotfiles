@@ -1,1 +1,47 @@
-../../Machfiles/zsh/.config/zsh/zsh-aliases
+#!/bin/sh
+alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
+alias nvimrc='nvim ~/.config/nvim/'
+
+# alias lvim='nvim -u ~/.local/share/lunarvim/lvim/init.lua --cmd "set runtimepath+=~/.local/share/lunarvim/lvim"'
+
+# Colorize grep output (good for log files)
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
+# easier to read disk
+alias df='df -h'     # human-readable sizes
+alias free='free -m' # show sizes in MB
+
+# get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4 | head -5'
+
+# get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3 | head -5'
+
+# gpg encryption
+# verify signature for isos
+alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
+# receive the key of a developer
+alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
+
+# For when keys break
+# alias archlinx-fix-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
+
+# exa aliases
+# Group directories first, show icons, and enable file size color scale
+alias ls='exa --group-directories-first --icons --color-scale' # --time-style=iso
+alias lt='exa --tree --level=2 --icons' # Show in tree view
+alias l='ls -a'                         # Short, all files
+alias ld='l -D'                         # Short, only directories
+alias ll='ls -lbG --git'                # Long, file size prefixes, grid, git status
+alias la='ll -a'                        # Long, all files
+alias lC='la --sort=changed'            # Long, sort changed
+alias lM='la --sort=modified'           # Long, sort modified
+alias lS='la --sort=size'               # Long, sort size
+alias lX='la --sort=extension'          # Long, sort extension

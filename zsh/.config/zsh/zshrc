@@ -42,7 +42,7 @@ zsh_add_file "zsh-prompt"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
-zsh_add_completion "esc/conda-zsh-completion" false
+# zsh_add_completion "esc/conda-zsh-completion" false
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
 
@@ -78,6 +78,7 @@ autoload edit-command-line; zle -N edit-command-line
 
 # Speedy keys
 if which xset > /dev/null; then
+	echo load xset
 	xset r rate 210 40
 fi
 
@@ -91,6 +92,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 # remap caps to escape
 if which setxkbmap > /dev/null; then
+	echo load setxkbmap
 	setxkbmap -option caps:escape
 fi
 # swap escape and caps

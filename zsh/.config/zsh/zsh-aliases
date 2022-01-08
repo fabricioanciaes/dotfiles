@@ -45,3 +45,9 @@ alias lC='la --sort=changed'            # Long, sort changed
 alias lM='la --sort=modified'           # Long, sort modified
 alias lS='la --sort=size'               # Long, sort size
 alias lX='la --sort=extension'          # Long, sort extension
+
+# kitty zsh alias
+if which kitty > /dev/null; then
+	alias ssh="kitty +kitten ssh"
+fi
+

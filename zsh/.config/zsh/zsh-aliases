@@ -9,6 +9,9 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
+# add preview to fzf
+alias fzf='fzf --preview="bat --color=always --style=numbers {}"'
+
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'
@@ -54,3 +57,10 @@ fi
 # git aliases
 alias gst='git status'
 alias gcam='git commit -am $1'
+
+# git fomo
+alias fomo="git fetch origin main && git rebase origin/main --autostash"
+
+# yarn pick
+alias yrun="jq .scripts package.json | jq -r 'keys[]' | fzf | yarn run $0"
+

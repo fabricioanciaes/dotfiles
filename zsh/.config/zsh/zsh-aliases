@@ -62,6 +62,6 @@ alias gcam='git commit -am $1'
 alias fomo="git fetch origin main && git rebase origin/main --autostash"
 
 # yarn pick
-alias yrun="yarn $(cat package.json | jq .scripts | sed '1d;$d' | fzf | awk -F ': ' '{gsub(/"/, "", $1); print $1}')"
+alias yrun="yarn run $(cat package.json | jq .scripts | sed '1d;$d' | fzf | awk -F ': ' '{gsub(/"/, "", $1); print $1}')"
 
 

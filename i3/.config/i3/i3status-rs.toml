@@ -1,5 +1,10 @@
 icons_format = "{icon}"
 
+[[block]]
+block = "focused_window"
+[block.format]
+full = " $title.str(max_w:120) |"
+short = " $title.str(max_w:10) |"
 [theme]
 theme = "ctp-mocha"
 
@@ -8,7 +13,7 @@ icons = "material-nf"
 
 [[block]]
 block = "uptime"
-interval = 60 # update every hour
+interval = 60    # update every hour
 
 [[block]]
 block = "battery"

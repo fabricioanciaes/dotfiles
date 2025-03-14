@@ -1,0 +1,126 @@
+{
+  "bar.workspaces.workspaceIconMap": {
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9",
+    "10": "10",
+    "-1338": "󰏫",
+    "-1337": "󱋊"
+  },
+  "menus.dashboard.stats.enable_gpu": true,
+  "bar.customModules.updates.pollingInterval": 1440000,
+  "hyprpanel.restartAgs": true,
+  "theme.font.name": "JetBrainsMono Nerd Font",
+  "theme.font.label": "JetBrainsMono Nerd Font Semi-Bold",
+  "theme.font.size": "0.8rem",
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "updates",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "cputemp",
+        "ram",
+        "volume",
+        "netstat",
+        "bluetooth",
+        "systray",
+        "clock",
+        "weather",
+        "notifications"
+      ]
+    },
+    "2": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    }
+  },
+  "bar.customModules.updates.leftClick": "menu:dashboard",
+  "bar.customModules.updates.rightClick": "$TERMINAL -e /usr/share/hyprpanel/scripts/runUpdates.sh -arch",
+  "bar.customModules.updates.icon.pending": "󰣇",
+  "bar.customModules.updates.icon.updated": "󰣇",
+  "theme.bar.buttons.enableBorders": false,
+  "theme.bar.buttons.borderSize": "0.03em",
+  "theme.bar.buttons.padding_x": "0.5rem",
+  "theme.bar.buttons.y_margins": "0.2em",
+  "bar.scrollSpeed": 2,
+  "bar.workspaces.show_icons": false,
+  "bar.workspaces.numbered_active_indicator": "highlight",
+  "bar.workspaces.showWsIcons": true,
+  "theme.bar.menus.monochrome": false,
+  "wallpaper.pywal": false,
+  "theme.bar.menus.opacity": 100,
+  "theme.bar.transparent": true,
+  "theme.bar.opacity": 100,
+  "theme.bar.buttons.opacity": 100,
+  "theme.bar.buttons.background_opacity": 0,
+  "theme.bar.buttons.monochrome": false,
+  "theme.bar.buttons.windowtitle.enableBorder": true,
+  "bar.clock.format": "%a %d/%m %H:%M",
+  "bar.media.truncation_size": 60,
+  "theme.bar.buttons.notifications.enableBorder": false,
+  "theme.bar.floating": false,
+  "theme.osd.orientation": "horizontal",
+  "theme.osd.location": "bottom",
+  "theme.osd.monitor": 1,
+  "theme.osd.margins": "64px",
+  "theme.osd.scaling": 100,
+  "menus.volume.raiseMaximumVolume": false,
+  "menus.clock.weather.location": "-23.56, -46.65",
+  "menus.clock.weather.key": "df05d44af1684a2d8a152012251203",
+  "menus.clock.weather.unit": "metric",
+  "menus.clock.weather.interval": 60000,
+  "menus.clock.weather.enabled": true,
+  "bar.customModules.netstat.rateUnit": "MiB",
+  "bar.customModules.netstat.labelType": "in",
+  "bar.customModules.cpuTemp.sensor": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
+  "bar.customModules.weather.unit": "metric",
+  "menus.dashboard.shortcuts.left.shortcut2.tooltip": "Discord",
+  "menus.dashboard.shortcuts.left.shortcut2.command": "discord",
+  "menus.dashboard.shortcuts.left.shortcut2.icon": "",
+  "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Zen Browser",
+  "menus.dashboard.shortcuts.left.shortcut1.command": "zen-browser",
+  "menus.dashboard.shortcuts.left.shortcut4.command": "wofi -show drun",
+  "menus.dashboard.shortcuts.left.shortcut3.tooltip": "Terminal",
+  "menus.dashboard.shortcuts.left.shortcut3.command": "ghostty",
+  "menus.dashboard.shortcuts.left.shortcut3.icon": "",
+  "menus.dashboard.shortcuts.left.shortcut1.icon": "",
+  "bar.media.show_active_only": true
+}

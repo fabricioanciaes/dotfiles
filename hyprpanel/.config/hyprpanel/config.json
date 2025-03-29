@@ -11,7 +11,8 @@
     "9": "9",
     "10": "10",
     "-1338": "󰏫",
-    "-1337": "󱋊"
+    "-1337": "󱋊",
+    "-99": ""
   },
   "menus.dashboard.stats.enable_gpu": true,
   "bar.customModules.updates.pollingInterval": 1440000,
@@ -490,5 +491,6 @@
   "menus.dashboard.shortcuts.left.shortcut3.command": "ghostty",
   "menus.dashboard.shortcuts.left.shortcut3.icon": "",
   "menus.dashboard.shortcuts.left.shortcut1.icon": "",
-  "bar.media.show_active_only": true
+  "bar.media.show_active_only": true,
+  "bar.autoHide": "fullscreen"
 }

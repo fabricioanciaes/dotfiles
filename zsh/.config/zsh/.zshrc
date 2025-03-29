@@ -42,6 +42,7 @@ zsh_add_file "zsh-prompt"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
+zsh_add_plugin "ajeetdsouza/zoxide"
 zsh_add_plugin "spaceship-prompt/spaceship-prompt"
 #zsh_add_plugin "lukechilds/zsh-nvm"
 
@@ -87,3 +88,9 @@ export EDITOR="nvim"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 eval "$(/home/lofi/.local/bin/mise activate zsh)"
+
+# Start tmux by default
+if [ -z "$TMUX" ]
+then
+    tmux attach -t system || tmux new -s system
+fi

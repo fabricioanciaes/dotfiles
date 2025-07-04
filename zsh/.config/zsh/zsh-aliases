@@ -10,7 +10,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 # add preview to fzf
-alias fzf='fzf --preview="bat --color=always --style=numbers {}"'
+# alias fzf='fzf --preview="bat --color=always --style=numbers {}"'
 
 # confirm before overwriting something
 alias cp="cp -i"
@@ -48,11 +48,6 @@ alias lC='la --sort=changed'            # Long, sort changed
 alias lM='la --sort=modified'           # Long, sort modified
 alias lS='la --sort=size'               # Long, sort size
 alias lX='la --sort=extension'          # Long, sort extension
-
-# kitty zsh alias
-if which kitty > /dev/null; then
-	alias ssh="kitty +kitten ssh"
-fi
 
 # git aliases
 alias gst='git status'

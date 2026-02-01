@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# Open the GitHub URL of the current git repository
+
+# Get the current pane's working directory
+if [[ -n "$TMUX" ]]; then
+    current_dir=$(tmux display-message -p -F "#{pane_current_path}")
+else
+    current_dir=$(pwd)
+fi
+
+cd "$current_dir" || exit 1
+
+# Check if we're in a git repo
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "Not in a git repository"
+    exit 1
+fi
+
+# Get the remote URL
+remote_url=$(git config --get remote.origin.url)
+
+if [[ -z "$remote_url" ]]; then
+    echo "No remote origin found"
+    exit 1
+fi
+
+# Convert SSH/HTTPS URL to web URL
+if [[ "$remote_url" =~ git@github\.com:(.+)\.git ]]; then
+    # SSH format: git@github.com:user/repo.git
+    repo_path="${BASH_REMATCH[1]}"
+    web_url="https://github.com/$repo_path"
+elif [[ "$remote_url" =~ https://github\.com/(.+)\.git ]]; then
+    # HTTPS format: https://github.com/user/repo.git
+    repo_path="${BASH_REMATCH[1]}"
+    web_url="https://github.com/$repo_path"
+elif [[ "$remote_url" =~ https://github\.com/(.+) ]]; then
+    # HTTPS without .git
+    repo_path="${BASH_REMATCH[1]}"
+    web_url="https://github.com/$repo_path"
+else
+    echo "Remote URL is not a GitHub repository: $remote_url"
+    exit 1
+fi
+
+# Open in browser with focus
+if command -v xdg-open-focus > /dev/null 2>&1; then
+    ~/.local/bin/xdg-open-focus "$web_url" > /dev/null 2>&1
+elif command -v xdg-open > /dev/null 2>&1; then
+    xdg-open "$web_url" > /dev/null 2>&1
+elif command -v open > /dev/null 2>&1; then
+    open "$web_url" > /dev/null 2>&1
+else
+    echo "No browser opener found"
+    exit 1
+fi

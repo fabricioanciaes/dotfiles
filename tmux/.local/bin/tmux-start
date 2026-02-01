@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Wrapper script to start tmux with a default session
+
+if ! tmux has-session -t system 2>/dev/null; then
+    # No "system" session exists, create it in home directory
+    tmux new-session -d -s system -c ~
+fi
+
+# If not already in tmux, attach to system session
+if [[ -z "$TMUX" ]]; then
+    tmux attach-session -t system
+else
+    # Already in tmux, just switch to system
+    tmux switch-client -t system
+fi

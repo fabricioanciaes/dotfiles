@@ -67,6 +67,9 @@ bindkey "^j" down-line-or-beginning-search # Down
 bindkey -r "^u"
 bindkey -r "^d"
 
+# tmux-sessionizer keybinding
+bindkey -s "^f" "tms\n"
+
 # FZF 
 # TODO update for mac
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh

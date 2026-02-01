@@ -1,4 +1,8 @@
 #!/bin/sh
 
 source "$HOME/.config/zsh/plugins/spaceship-prompt/spaceship.zsh"
-SPACESHIP_VI_MODE_SHOW=false
+
+# Spaceship configuration
+SPACESHIP_VI_MODE_SHOW=true
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_CHAR_SYMBOL="➜ "

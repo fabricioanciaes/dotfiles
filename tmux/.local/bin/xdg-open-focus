@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Wrapper for xdg-open that focuses the opened window in Hyprland
+
+# Get the real xdg-open path
+REAL_XDG_OPEN="/usr/bin/xdg-open"
+
+# Open the URL/file with the real xdg-open
+"$REAL_XDG_OPEN" "$@" > /dev/null 2>&1 &
+xdg_pid=$!
+
+# If using Hyprland, focus the browser window
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]] && command -v hyprctl > /dev/null 2>&1; then
+    # Get the PID of the process that will handle the URL (usually the browser)
+    sleep 0.3
+
+    # Find browser window by common class names and focus it
+    browser_found=false
+    for class in "firefox" "Firefox" "chromium" "Chromium" "google-chrome" "Google-chrome" "chrome" "Chrome" "brave-browser" "Brave-browser" "brave" "Brave" "vivaldi" "Vivaldi" "opera" "Opera" "microsoft-edge" "Microsoft-edge"; do
+        if hyprctl clients -j | jq -e ".[] | select(.class == \"$class\")" > /dev/null 2>&1; then
+            hyprctl dispatch focuswindow "class:^($class)$" > /dev/null 2>&1
+            browser_found=true
+            break
+        fi
+    done
+
+    # If no browser found by class, try to find by checking all windows
+    if [[ "$browser_found" == "false" ]]; then
+        sleep 0.5
+        # Just try to focus any browser-like window
+        hyprctl dispatch focuswindow "class:.*" > /dev/null 2>&1
+    fi
+fi

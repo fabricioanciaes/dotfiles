@@ -43,7 +43,6 @@ zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
 zsh_add_plugin "ajeetdsouza/zoxide"
-zsh_add_plugin "spaceship-prompt/spaceship-prompt"
 #zsh_add_plugin "lukechilds/zsh-nvm"
 
 # zsh_add_completion "esc/conda-zsh-completion" false
@@ -90,6 +89,7 @@ export EDITOR="nvim"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
 eval "$(/home/lofi/.local/bin/mise activate zsh)"
 
 # Start tmux by default
@@ -97,3 +97,5 @@ if [ -z "$TMUX" ]
 then
     tmux attach -t system || tmux new -s system
 fi
+
+. "$HOME/.local/share/../bin/env"
